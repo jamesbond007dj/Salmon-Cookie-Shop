@@ -197,7 +197,7 @@ var storeCapitol = {
 };
 //results
 
-storePike.salesDaily();
+document.write('<li>' + storePike.salesDaily() + '</li>');
 storeSeatec.salesDaily();
 storeSeattle.salesDaily();
 storeCapitol.salesDaily();
