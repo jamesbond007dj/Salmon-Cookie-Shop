@@ -1,1 +1,179 @@
+body {
+
+    background-color: salmon; 
+    float: left;
+    margin: 0 auto;
+    width: 1000px;
+       
+}
+
+header {
+    background-color: salmon; 
+    color:rgb(179, 0, 0); 
+    float: left;
+    margin-top: 5px;
+    text-align : center;
+    width: 1000px;
+
+}
+
+section {
+    background-color: salmon; 
+    color:rgb(179, 0, 0); 
+    float: left;
+    margin: 0px;
+    width: 1000px;
+
+}
+
+footer {
+    background-color: salmon; 
+    color:rgb(179, 0, 0);
+    font-size: 15px;
+    float: left;
+    margin-left: 200px;
+    margin-top: 10px;
+    width: 900px;
+
+}
+
+ul.sidenav {
+
+    list-style-type: none;
+    float: left;
+    font-family: 'Nosifer', cursive;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    width: 180px;
+    background-color: rgb(230, 173, 167);
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+
+}
+
+  
+
+ul.sidenav li a {
+
+    display: block;
+
+    color: rgb(240, 55, 9);
+
+    padding: 16px 16px;
+
+    text-decoration: none;
+
+}
+
+   
+
+ul.sidenav li a.active {
+
+    background-color: #4CAF50;
+
+    color: salmon;
+
+}
+
+  
+
+ul.sidenav li a:hover:not(.active) {
+
+    background-color: rgb(158, 6, 6);
+
+    color: salmon;
+
+}
+
+ul {
+
+    list-style-type: square  ;
+
+    margin-left: 200;
+
+    padding-left: 300px;
+
+    background-color: salmon;
+
+    top: 0;
+
+    text-align: left;
+
+}
+
+  
+
+li {
+
+    padding-left: 150;
+
+    
+
+}
+
+  
+
+li a {
+
+    display: block;
+
+    color: red;
+
+    text-align: center;
+
+    padding: 14px 16px;
+
+    text-decoration: none;
+
+}
+
+  
+
+li a:hover {
+
+    background-color: rgb(123, 100, 223);
+
+}
+
+h1 {
+    
+    background-color: salmon;
+    color:rgb(179, 34, 15); 
+    font-family: 'Bigelow Rules', cursive;
+    font-size: 100px;
+    text-align: center;
+    margin-left: 70px;
+    margin-top: 5px;
+    width: 900px;
+
+} 
+
+h6 {
+    
+    background-color: salmon;
+    color:rgb(165, 17, 12); 
+    font-family:  'Sedgwick Ave Display', cursive;
+    font-size: 40px;
+    text-align: center;
+    height: 5px;
+    margin-left: 70px;
+    width: 900px;
+}
+h5 {
+    
+    background-color: salmon;
+    color: rgb(138, 63, 60); 
+    font-family:  'Beth Ellen', cursive;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 220px;
+    width: 600px;
+
+} 
+img {
+    float: center;
+    margin-left: 350px;
+}
 
