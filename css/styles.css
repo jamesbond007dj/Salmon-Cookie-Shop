@@ -117,14 +117,10 @@ li {
 
 li a {
 
-    display: block;
-
     color: red;
-
+    display: block;
     text-align: center;
-
     padding: 14px 16px;
-
     text-decoration: none;
 
 }

@@ -195,7 +195,6 @@ var storeCapitol = {
     }
 
 };
-
 //results
 
 storePike.salesDaily();
