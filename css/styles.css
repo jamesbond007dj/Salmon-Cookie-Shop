@@ -19,9 +19,11 @@ header {
 
 section {
     background-color: salmon; 
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 40px;
     text-align: center;
     color:rgb(179, 0, 0); 
-    margin-left: 20px;
+    margin-left: 50px;
     width: 1000px;
 
 }
@@ -42,7 +44,7 @@ ul.sidenav {
     list-style-type: none;
     float: left;
     font-family: 'Nosifer', cursive;
-    font-size: 18px;
+    font-size: 19px;
     margin: 0;
     padding: 0;
     width: 180px;
@@ -147,12 +149,18 @@ h1 {
 
 } 
 
+h2 {
+
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 40px;
+}
+
 h4 {
     
     background-color: salmon;
     color:rgb(165, 17, 12); 
     font-family: 'Sedgwick Ave Display', cursive;
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     height: 10px;
     margin-left: 170px;
@@ -162,9 +170,8 @@ h5 {
     
     background-color: salmon;
     color: rgb(138, 63, 60); 
-    font-family:  'Beth Ellen', cursive;
-    font-size: 20px;
-    
+    font-family:  'Beth Ellen', cursive;    
+    font-size: 30px;
     margin-left: 220px;
     width: 600px;
 
@@ -175,7 +182,7 @@ h6 {
     
     color:rgb(165, 17, 12); 
     font-family:  'Sedgwick Ave Display', cursive;
-    font-size: 30px;
+    font-size: 40px;
     text-align: left;
     height: 5px;
     margin-top: 50px;

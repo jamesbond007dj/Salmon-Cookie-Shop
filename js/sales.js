@@ -1,286 +1,98 @@
 'use strict';
 
-
-
-var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
-
+var hours = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12pm ', '1pm ', '2pm ', '3pm ', '4pm ', '5pm ', '6pm ', '7pm ', '8pm '];
 var sumTotal = ['Total: '];
-
-
-
+var allStores = [];
 var locations = [];
-
 var total = [];
 
+console.log(total);
 
-var PikeAnd1st = {
-
-  name: '1st and Pike',
-
-  minCustomer: 23,
-
-  maxCustomer: 65,
-
-  aveSale: 6.3,
-
-  TotalSales: [],
-
-  randomCust: function (minCustomer, maxCustomer) {
-
-    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
-
-  },
-
-  generateSales: function() {
-
+function Store(name, minCustomer, maxCustomer, aveSale) {
+  this.name = name;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.aveSale = aveSale;
+  this.TotalSales = [];
+  this.randomCust = function(minCustomer, maxCustomer) {
+    return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer)) + this.minCustomer + 1;
+  };
+  this.generateSales = function() {
     for (var i = 1; i <= 15; i ++) {
-
       var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
-
       this.TotalSales.push(simuSales);
-
     }
+  };
+  allStores.push(this);
+}
 
-  },
+var PikeAnd1st = new Store('1st and Pike', 23, 65, 6.3);
+var SeaTac = new Store('SeaTac Airport', 3, 24, 1.2);
+var SeaCenter = new Store('Seattle Center', 11, 387, 3.7);
+var CapitolHill = new Store('Capitol Hill', 20, 38, 2.3);
+var Alki = new Store('Alki', 2, 16, 4.6);
 
-};
+function fillCells () {
 
+  var table = document.getElementById('table-locations');
 
-var SeaTac = {
+  var thead = document.createElement('thead');
+  var tr = document.createElement('tr');
 
-  name: 'SeaTac Airport',
+  hours.unshift(' ');
 
-  minCustomer: 3,
-
-  maxCustomer: 24,
-
-  aveSale: 1.2,
-
-  TotalSales: [],
-
-  randomCust: function (minCustomer, maxCustomer) {
-
-    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
-
-  },
-
-  generateSales: function() {
-
-    for (var i = 1; i <= 15; i ++) {
-
-      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
-
-      this.TotalSales.push(simuSales);
-
-    }
-
-  },
-
-};
-
-
-
-var SeaCenter = {
-
-  name: 'Seattle Center',
-
-  minCustomer: 11,
-
-  maxCustomer: 38,
-
-  aveSale: 3.7,
-
-  TotalSales: [],
-
-  randomCust: function (minCustomer, maxCustomer) {
-
-    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
-
-  },
-
-  generateSales: function() {
-
-    for (var i = 1; i <= 15; i ++) {
-
-      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
-
-      this.TotalSales.push(simuSales);
-
-    }
-
-  },
-
-};
-
-
-
-var CapitolHill = {
-
-  name: 'Capitol Hill',
-
-  minCustomer: 20,
-
-  maxCustomer: 38,
-
-  aveSale: 2.3,
-
-  TotalSales: [],
-
-  randomCust: function (minCustomer, maxCustomer) {
-
-    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
-
-  },
-
-  generateSales: function() {
-
-    for (var i = 1; i <= 15; i ++) {
-
-      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
-
-      this.TotalSales.push(simuSales);
-
-    }
-
-  },
-
-};
-
-
-
-
-var Alki = {
-
-  name: 'Alki',
-
-  minCustomer: 2,
-
-  maxCustomer: 16,
-
-  aveSale: 4.6,
-
-  TotalSales: [],
-
-  randomCust: function (minCustomer, maxCustomer) {
-
-    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
-
-  },
-
-  generateSales: function() {
-
-    for (var i = 1; i <= 15; i ++) {
-
-      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
-
-      this.TotalSales.push(simuSales);
-
-    }
-
-  },
-
-};
-
-
-
-function render() {
-
-  var section = document.getElementById('locations');
-
-
-
-  for (var i = 0 ; i < locations.length; i++) {
-
-
-
-    var title = document.createElement('h3');
-
-    title.textContent = locations[i].name;
-
-    section.appendChild(title);
-
-
-
-    var list = document.createElement('ul');
-
-
-
-    for (var p = 0 ; p < hours.length; p++) {
-
-      var projection = hours[p] + locations[i].TotalSales[p];
-
-      var li = document.createElement('li');
-
-      li.textContent = projection;
-
-      
-
-      list.appendChild(li);
-
-    }
-
-
-
-    var sum = 0;
-
-    for (var s = 0; s < locations[i].TotalSales.length; s++) {
-
-      sum += parseInt(locations[i].TotalSales[s]);
-
-      total.push(sum);
-
-    }
-
-
-
-    var addTotal = document.createElement('li');
-
-    var TotalSum = sumTotal + sum;
-
-    addTotal.textContent = TotalSum;
-
-    list.appendChild(addTotal);
-
-
-
-    
-
-    section.appendChild(list);
-
+  for (var h = 0 ; h < hours.length; h++) {
+    var th = document.createElement('th');
+    th.textContent = hours[h];
+    tr.appendChild(th);
   }
 
+  thead.appendChild(tr);
+  table.appendChild(thead);
+
+  for (var r = 0; r < allStores.length; r++) {
+
+    var tbody = document.createElement('tbody');
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    td.textContent = allStores[r].name;
+
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
+
+    for (var d = 0 ; d < allStores[r].TotalSales.length; d++) {
+
+      var td2 = document.createElement('td');
+      td2.textContent = allStores[r].TotalSales[d];
+
+      var sum = 0;
+      sum += parseInt(allStores[r].TotalSales[d]);
+      total.push(sum);
+
+      var td3 = document.createElement('td');
+      td3.textContent = total[r];
+
+      tr.appendChild(td2);
+      tbody.appendChild(tr);
+      table.appendChild(tbody);
+    }
+  }
 }
-
-
 
 function initialize () {
-
   PikeAnd1st.generateSales();
-
   SeaTac.generateSales();
-
   SeaCenter.generateSales();
-
   CapitolHill.generateSales();
-
   Alki.generateSales();
 
-
-
   locations.push(PikeAnd1st);
-
   locations.push(SeaTac);
-
   locations.push(SeaCenter);
-
   locations.push(CapitolHill);
-
   locations.push(Alki);
-
 }
 
-
-
 initialize();
-
-render();
+fillCells();
