@@ -13,13 +13,6 @@ var locations = [];
 var total = [];
 
 
-
-// ======================================================================
-
-// Store: 1st and Pike
-
-
-
 var PikeAnd1st = {
 
   name: '1st and Pike',
@@ -53,13 +46,6 @@ var PikeAnd1st = {
 };
 
 
-
-// ======================================================================
-
-// Store: SeaTac Airport
-
-
-
 var SeaTac = {
 
   name: 'SeaTac Airport',
@@ -91,12 +77,6 @@ var SeaTac = {
   },
 
 };
-
-
-
-// ======================================================================
-
-// Store: Seattle Center
 
 
 
@@ -134,12 +114,6 @@ var SeaCenter = {
 
 
 
-// ======================================================================
-
-// Store: Capitol Hill
-
-
-
 var CapitolHill = {
 
   name: 'Capitol Hill',
@@ -172,11 +146,6 @@ var CapitolHill = {
 
 };
 
-
-
-// ======================================================================
-
-// Store: Alki
 
 
 
@@ -214,21 +183,7 @@ var Alki = {
 
 
 
-// ======================================================================
-
 function render() {
-
-  // Find the container (section with an id="locations")
-
-  // Loop over the locations
-
-  // <h3> with it's name
-
-  // <ul>
-
-  // Loop over the [hours] and make an <li> with the hour and the projection from location [cookies]
-
-
 
   var section = document.getElementById('locations');
 
@@ -258,7 +213,7 @@ function render() {
 
       li.textContent = projection;
 
-      // list created element of 'ul', so we appendChild to ul first (ul > li).
+      
 
       list.appendChild(li);
 
@@ -288,7 +243,7 @@ function render() {
 
 
 
-    // Then we append what we just appended ul to section, so section.append list (section > ul > li).
+    
 
     section.appendChild(list);
 
