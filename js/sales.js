@@ -1,222 +1,331 @@
 'use strict';
 
-// Declare work hours
-var hoursWork = ['6:00am','7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm']
 
-// First store (pike) object
-var storePike = {
-    location: '1st and Pike',
-    maxCustomer: 65,
-    minCustomer: 23,
-    avgCookiePerSale: 6.3,
-    totalHoursWork: 14,
-    totalCookieSales: 0,
-    storeSales: [],
 
-    salesDaily: function() {
-        for (var i = 0; i<this.totalHoursWork; i++ ) {
-            var randomSales = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1 ) * this.averageCookiePerSale + this.minCustomer);
-            this.storeSales.push(randomSales);
-            
-        }
-    },
+var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
 
-    calculateDailyTotal: function () {
-        for (var i = 0 ; i < this.storeSales.length; i++) {
-            this.totalCookieSales += this.storeSales[i];
-        }
-    },
-    populateLocation: function () {
-        var newText = document.createTextNode(this.location);
-        var position = document.getElementsByTagName('1h')[this.objectNumber];
-        position.appendChild(newText);
-    },
-    populateSales: function() {
-        for (var i = 0; i < this.storeSales.length; i++ ) {
-            var newElement = document.createElement('li');
-            var newText = document.createTextNode(this.storeSales[i]);
-            newElement.appendChild(newText);
-            var position = document.getElementsByTagName('ul')[this.objectNumber];
-            position.appendChild(newElement);
+var sumTotal = ['Total: '];
 
-        }
+
+
+var locations = [];
+
+var total = [];
+
+
+
+// ======================================================================
+
+// Store: 1st and Pike
+
+
+
+var PikeAnd1st = {
+
+  name: '1st and Pike',
+
+  minCustomer: 23,
+
+  maxCustomer: 65,
+
+  aveSale: 6.3,
+
+  TotalSales: [],
+
+  randomCust: function (minCustomer, maxCustomer) {
+
+    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
+
+  },
+
+  generateSales: function() {
+
+    for (var i = 1; i <= 15; i ++) {
+
+      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
+
+      this.TotalSales.push(simuSales);
+
     }
 
+  },
 
 };
 
-var storeSeatec = {
-    location: 'SeaTac Airport',
-    maxCustomer: 24,
-    minCustomer: 3,
-    averageCookiePerSale: 1.2,
-    totalHoursWork: 14,
-    totalCookieSales: 0,
-    storeSales: [],
 
-    salesDaily: function () {
-        for ( var i = 0 ; i < this.totalHoursWork ; i++) {
-            var randomSales = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1 ) * this.averageCookiePerSale + this.minCustomer);
-            this.storeSales.push(randomSales);
-        }
-    },
-    calculateDailyTotal: function () {
-        for (var i = 0 ; i < this.storeSales.length; i++) {
-            this.totalCookieSales += this.storesSales [i];
-        }
-    },
-    populateLocation: function () {
-        var newText = document.createTextNode(this.location);
-        var position = document.getElementsByTagName('1h')[this.objectNumber];
-        position.appendChild(newText);
-    },
-    populateSales : function () {
-        for (var i = 0 ; i < this.storeSales.length; i++) {
-            var newElement = document.createElement('li');
-            var newText = document.createTextNode(this.storesSales[i]);
-            newElement.appendChild(newText);
-            var position = document.getElementsByTagName('ul')[this.objectNumber];
-            position.appendChild(newElement);
-        }
-    }
-};
 
-var storeSeattle = {
-    location: 'Seattle Center',
-    maxCustomer: 38, 
-    minCustomer: 11,
-    averageCookiePerSale: 3.7,
-    totalHoursWork: 14, 
-    totalCookieSales : 0,
-    storeSales: [],
+// ======================================================================
 
-    salesDaily : function () {
-        for (var i = 0 ; i < this.totalHoursWork ; i++ ) {
-            var randomSales = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1) * this.averageCookiePerSale + this.minCustomer);
-            this.storeSales.push(randomSales);
+// Store: SeaTac Airport
 
-        }
-    },
 
-    calculateDailyTotal : function () {
-        for (var i = 0 ; i < this.storeSales.length; i++) {
-            this.totalCookieSales += this.storeSales [i];
 
-        }   
-    },
+var SeaTac = {
 
-    populateLocation: function () {
-        var newText = document.createTextNode(this.location);
-        var position = document.getElementsByTagName('1h')[this.objectNumber];
-        position.appendChild(newText);
-    },
-    populateSales : function () { 
-        for (var i = 0; i < this.storeSales.length; i++) {
-            var newElement = document.createElement('li');
-            var newText = document.createTextNode(this.storeSales[i]);
-            newElement.appendChild(newText);
-            var position = document.getElementsByTagName('ul')[this.objectNumber];
-            position.appendChild(newElement);
-        }
-        
-    } 
+  name: 'SeaTac Airport',
 
-};
-var storeCapitol = {
-    location: 'Capitol Hill',
-    maxCustomer: 38,
-    minCustomer: 20,
-    averageCookiePerSale: 2.3,
-    totalHoursWork: 14,
-    totalCookieSales: 0,
-    storeSales: [],
+  minCustomer: 3,
 
-    salesDaily: function () {
-        for (var i = 0; i< this.totalHoursWork; i++) {
-             var randomSales = Math.floor(math.random() * (this.maxCustomer - this.minCustomer + 1 ) * this.averageCookiePerSale + this.minCustomer);
-             this.storeSales.push(randomSales);
+  maxCustomer: 24,
 
-        }
-    },
-    calculateDailyTotal: function () {
-        for (var i = 0; i < this.storeSales.length; i++) {
-            this.totalCookieSales +=this.storesSales [i];
-        }
-    },
-    populateLocation : function () {
-        var newText = document.createTextNode(this.location);
-        var position = document.getElementsByTagName('1h')[this.objectNumber];
-        position.appendChild(newText);
+  aveSale: 1.2,
 
-    },
-    populateSales: function () {
-        for (var i = 0 ; i < this.storeSales.length; i++) {
-            var newElement = document.createElement('li');
-            var newText = document.createTextNode(this.storeSales[i]);
-            newElement.appendChild(newText);
-            var position = document.getElementsByTagName('ul')[this.objectNumber];
-            position.appendChild(newElement);
-        }
+  TotalSales: [],
+
+  randomCust: function (minCustomer, maxCustomer) {
+
+    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
+
+  },
+
+  generateSales: function() {
+
+    for (var i = 1; i <= 15; i ++) {
+
+      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
+
+      this.TotalSales.push(simuSales);
+
     }
 
-}; var storeAlki ={
-    location: 'Alki',
-    maxCustomer: 16,
-    minCustomer: 2,
-    avgCookiePerSale: 4.6,
-    totalHoursWork: 14,
-    totalCookieSales: 0,
-    storeSales: [],
-
-    salesDaily: function () {
-        for (var i = 0; i < this.totalHoursWork; i++);
-            var randomSales = Math.floor(math.random() * (this.maxCustomer - this.minCustomer + 1 ) * this.averageCookiePerSale + this.minCustomer);
-            this.storeSales.push(randomSales);
-
-    },
-    calculateDailyTotal: function () {
-        for (var i = 0 ; i < this.storeSales.length; i++) {
-            this.totalCookieSales += this.storeSales[i];
-        }
-    },
-    populateLocation: function () {
-        var newText = document.createTextNode(this.location);
-        var position = document.getElementsByTagName('1h');
-        position.appendChild(newText);
-    },
-    populateSales : function () {
-        for (var i = 0; i < this.storeSales.length; i++) {
-            var newElement = document.createElement('li');
-            var newText = document.createTextNode(this.storeSales[i]);
-            newElement.appendChild(newText);
-            var position = document.getElementsByTagName('ul')[this.objectNumber];
-            position.appendChild(newElement);
-        }
-    }
+  },
 
 };
-//results
 
-document.write('<li>' + storePike.salesDaily() + '</li>');
-storeSeatec.salesDaily();
-storeSeattle.salesDaily();
-storeCapitol.salesDaily();
-storeAlki.salesDaily();
 
-storePike.calculateDailyTotal();
-storeSeatec.calculateDailyTotal();
-storeSeattle.calculateDailyTotal();
-storeCapitol.calculateDailyTotal();
-storeAlki.calculateDailyTotal();
 
-storePike.populateLocation();
-storeSeatec.populateLocation();
-storeSeattle.populateLocation();
-storeCapitol.populateLocation();
-storeAlki.populateLocation();
+// ======================================================================
 
-storePike.populateSales();
-storeSeatec.populateSales();
-storeSeattle.populateSales();
-storeCapitol.populateSales();
-storeAlki.populateSales();
+// Store: Seattle Center
+
+
+
+var SeaCenter = {
+
+  name: 'Seattle Center',
+
+  minCustomer: 11,
+
+  maxCustomer: 38,
+
+  aveSale: 3.7,
+
+  TotalSales: [],
+
+  randomCust: function (minCustomer, maxCustomer) {
+
+    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
+
+  },
+
+  generateSales: function() {
+
+    for (var i = 1; i <= 15; i ++) {
+
+      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
+
+      this.TotalSales.push(simuSales);
+
+    }
+
+  },
+
+};
+
+
+
+// ======================================================================
+
+// Store: Capitol Hill
+
+
+
+var CapitolHill = {
+
+  name: 'Capitol Hill',
+
+  minCustomer: 20,
+
+  maxCustomer: 38,
+
+  aveSale: 2.3,
+
+  TotalSales: [],
+
+  randomCust: function (minCustomer, maxCustomer) {
+
+    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
+
+  },
+
+  generateSales: function() {
+
+    for (var i = 1; i <= 15; i ++) {
+
+      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
+
+      this.TotalSales.push(simuSales);
+
+    }
+
+  },
+
+};
+
+
+
+// ======================================================================
+
+// Store: Alki
+
+
+
+var Alki = {
+
+  name: 'Alki',
+
+  minCustomer: 2,
+
+  maxCustomer: 16,
+
+  aveSale: 4.6,
+
+  TotalSales: [],
+
+  randomCust: function (minCustomer, maxCustomer) {
+
+    return Math.floor(Math.random() * (maxCustomer-minCustomer)) + minCustomer + 1;
+
+  },
+
+  generateSales: function() {
+
+    for (var i = 1; i <= 15; i ++) {
+
+      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSale);
+
+      this.TotalSales.push(simuSales);
+
+    }
+
+  },
+
+};
+
+
+
+// ======================================================================
+
+function render() {
+
+  // Find the container (section with an id="locations")
+
+  // Loop over the locations
+
+  // <h3> with it's name
+
+  // <ul>
+
+  // Loop over the [hours] and make an <li> with the hour and the projection from location [cookies]
+
+
+
+  var section = document.getElementById('locations');
+
+
+
+  for (var i = 0 ; i < locations.length; i++) {
+
+
+
+    var title = document.createElement('h3');
+
+    title.textContent = locations[i].name;
+
+    section.appendChild(title);
+
+
+
+    var list = document.createElement('ul');
+
+
+
+    for (var p = 0 ; p < hours.length; p++) {
+
+      var projection = hours[p] + locations[i].TotalSales[p];
+
+      var li = document.createElement('li');
+
+      li.textContent = projection;
+
+      // list created element of 'ul', so we appendChild to ul first (ul > li).
+
+      list.appendChild(li);
+
+    }
+
+
+
+    var sum = 0;
+
+    for (var s = 0; s < locations[i].TotalSales.length; s++) {
+
+      sum += parseInt(locations[i].TotalSales[s]);
+
+      total.push(sum);
+
+    }
+
+
+
+    var addTotal = document.createElement('li');
+
+    var TotalSum = sumTotal + sum;
+
+    addTotal.textContent = TotalSum;
+
+    list.appendChild(addTotal);
+
+
+
+    // Then we append what we just appended ul to section, so section.append list (section > ul > li).
+
+    section.appendChild(list);
+
+  }
+
+}
+
+
+
+function initialize () {
+
+  PikeAnd1st.generateSales();
+
+  SeaTac.generateSales();
+
+  SeaCenter.generateSales();
+
+  CapitolHill.generateSales();
+
+  Alki.generateSales();
+
+
+
+  locations.push(PikeAnd1st);
+
+  locations.push(SeaTac);
+
+  locations.push(SeaCenter);
+
+  locations.push(CapitolHill);
+
+  locations.push(Alki);
+
+}
+
+
+
+initialize();
+
+render();
