@@ -19,9 +19,11 @@ header {
 
 section {
     background-color: salmon; 
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 40px;
     text-align: center;
     color:rgb(179, 0, 0); 
-    margin-left: 20px;
+    margin-left: 50px;
     width: 1000px;
 
 }
@@ -147,6 +149,12 @@ h1 {
 
 } 
 
+h2 {
+
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 40px;
+}
+
 h4 {
     
     background-color: salmon;
@@ -162,9 +170,8 @@ h5 {
     
     background-color: salmon;
     color: rgb(138, 63, 60); 
-    font-family:  'Beth Ellen', cursive;
-    font-size: 20px;
-    
+    font-family:  'Beth Ellen', cursive;    
+    font-size: 40px;
     margin-left: 220px;
     width: 600px;
 
