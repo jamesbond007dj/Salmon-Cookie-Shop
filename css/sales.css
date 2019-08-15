@@ -67,6 +67,18 @@ ul.sidenav li a {
 
 }
 
+form {
+
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 180px;
+    text-align: center;
+    widows: 300px;
+    
+}
+
+
    
 
 ul.sidenav li a.active {
