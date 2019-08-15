@@ -9,7 +9,7 @@
     </head>
     <body>
         
-        <header>
+      <header>
             <h1>Pat's Salmon Cookie Shop</h1>
             <h4>Sales Information</h4>
             <nav>
@@ -22,26 +22,55 @@
                     <li><a href="sales.html" class="nav-link">SALES</a><br /></li>
                 </ul>
             </nav>
-        </header>
+      </header>
+      <form id="sales_form">
+        <fieldset>
+            <label for="locations1">Store Locations:</label>
+            <select name="locations1">
+            <option value="1st and Pike">1st and Pike</option>           
+            <option value="SeaTac Airport">SeaTac Airport</option>
+            <option value="Seattle Center">Seattle Centert</option>
+            <option value="Capitol Hill">Capitol Hill</option>
+            <option value="Alki">Alki</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label for="maxCustomer1">Max. Customer per hour:</label>
+            <input type="number" name="maxCustomer1" placeholder="Enter Nember" minlength="1"required>
+        </fieldset>
+        <fieldset>
+            <label for="minCustomer1">Min. Customer per hour:</label>
+            <input type="number" name="minCustomer1" placeholder="Enter Number" minlength="1"required>
+          </fieldset>
+          <fieldset>
+            <label id="aveSale1">Average Sales per hour:</label>
+            <input type="number" name="aveSale1" placeholder="Enter Number" minlength="1"required>
+          </fieldset>
+          <button id="submit_btn" type="submit">Add Store Sales</button>
+            
+        </form>
+        <table>
+          <thead>
+            <th>Location</th>
+            <th>Max. Customer per hour</th>
+            <th>Min. Customer per hour</th>
+            <th>Average Sales per hour</th>
+          </thead>
+          <tbody id = "sales_table">
+            
+          </tbody>
+        </table>
         <section id="locations">
-                <h2>Sales Projections</h2>
-              </section>
-            
-                <table id="table-locations">
-            
-                  <thead>
-                    <tr>
-                      <th></th>
-                    </tr>
-                  </thead>
-            
-                  <tbody>
-                    <tr>
-                      <td></td>
-                    </tr>
-                  </tbody>
-            
-                </table>
+            <h4>Sales Projections</h4>
+          </section>
+        
+            <table id="table-locations">
+              <tbody id="table-body">
+        
+              </tbody>
+            </table>
+          
+          <br>
              <div>
                     <img src="http://www.earthlingenterprises.ca/earthlingenterprises/Media/animated%20salmon.gif">
                     <h5>We are proud to serve Seattle more than a decade....</h5>
