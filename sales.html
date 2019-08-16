@@ -24,50 +24,93 @@
             </nav>
       </header>
       <form id="sales_form">
-        <fieldset>
-          <label for="locations">Max. Customer per hour:</label>
-          <input type="txt" name="maxCustomer1" placeholder="Enter New Location" minlength="3"required>
-      </fieldset>
-        <fieldset>
-            <label for="maxCustomer1">Max. Customer per hour:</label>
-            <input type="number" name="maxCustomer1" placeholder="Enter Nember" minlength="1"required>
-        </fieldset>
-        <fieldset>
-            <label for="minCustomer1">Min. Customer per hour:</label>
-            <input type="number" name="minCustomer1" placeholder="Enter Number" minlength="1"required>
-          </fieldset>
+
           <fieldset>
-            <label id="aveSale1">Average Sales per hour:</label>
-            <input type="number" name="aveSale1" placeholder="Enter Number" minlength="1"required>
+      
+            <label for="store">Store name:</label>
+      
+            <input type="text" name="store"
+      
+            placeholder="Type in store name" minLength="3"
+      
+            required>
+      
           </fieldset>
-          <button id="submit_btn" type="submit">Add Store Sales</button>
-            
+      
+      
+      
+          <fieldset>
+      
+            <label for="minCustomer">Minimum customer per hour:</label>
+      
+            <input type='text' name="minCustomer"
+      
+            placeholder='Enter a number here' minLength='1'
+      
+            required>
+      
+          </fieldset>
+      
+      
+      
+          <fieldset>
+      
+            <label for="maxCustomer">Maximum customer per hour:</label>
+      
+            <input type='text' name="maxCustomer"
+      
+            placeholder='Enter a number here' minLength='1'
+      
+            required>
+      
+          </fieldset>
+      
+      
+      
+          <fieldset>
+      
+            <label for="aveSales">Average sales per customer per hour:</label>
+      
+            <input type='text' name="aveSales"
+      
+            placeholder='Enter a number here' minLength='1'
+      
+            required>
+      
+          </fieldset>
+      
+          <button id="submit_btn" type="submit">Add Store</button>
+      
         </form>
-        <table>
-          <thead>
-            <th>Location</th>
-            <th>Max. Customer per hour</th>
-            <th>Min. Customer per hour</th>
-            <th>Average Sales per hour</th>
-          </thead>
-          <tbody id = "sales_table">
-            
-          </tbody>
-        </table>
+      
+      
+      
         <section id="locations">
-            <h4>Sales Projections</h4>
-          </section>
+      
+          <h2>Sales Projections</h2>
+      
+        </section>
+      
+      
+      
+          <table id="table-locations">
+      
+            <thead id="table-head">
+      
+            </thead>
+      
+            <tbody id="table-body">
+      
+            </tbody>
+      
+          </table>
+      
         
-            <table id="table-locations">
-              <tbody id="table-body">
-        
-              </tbody>
-            </table>
-          
-          <br>
+      
+        <br>
              <div>
                     <img src="http://www.earthlingenterprises.ca/earthlingenterprises/Media/animated%20salmon.gif">
-                    <h5>We are proud to serve Seattle more than a decade....</h5>
+                    <span>We are proud to serve Seattle more than a decade....</span>
              </div>
               <footer>
            <script src="/js/sales.js"></script>
