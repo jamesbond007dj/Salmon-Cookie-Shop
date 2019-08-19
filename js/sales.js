@@ -1,16 +1,14 @@
-'use strict'
+'use strict';
 
 
 
 var hours = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12pm ', '1pm ', '2pm ', '3pm ', '4pm ', '5pm ', '6pm ', '7pm ', '8pm '];
 
-var sumTotal = ['Total '];
+var sumStore = ['Total '];
 
 // All properties and values in each Object.
 
 var allStores = [];
-
-
 
 
 
@@ -32,9 +30,9 @@ function Store(name, minCustomer, maxCustomer, aveSales) {
 
   this.aveSales = aveSales;
 
-  this.TotalSales = [];
+  this.totalSales = [];
 
-  this.randomCust = function(minCustomer, maxCustomer) {
+  this.randomCust = function() {
 
     return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer)) + this.minCustomer + 1;
 
@@ -44,9 +42,9 @@ function Store(name, minCustomer, maxCustomer, aveSales) {
 
     for (var i = 1; i <= 15; i ++) {
 
-      var simuSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSales);
+      var simulatedSales = Math.round(this.randomCust(this.minCustomer, this.maxCustomer) * this.aveSales);
 
-      this.TotalSales.push(simuSales);
+      this.totalSales.push(simulatedSales);
 
     }
 
@@ -78,13 +76,13 @@ function Store(name, minCustomer, maxCustomer, aveSales) {
 
     // Create sales data in following columns.
 
-    for (var d = 0 ; d < this.TotalSales.length; d++) {
+    for (var i = 0 ; i < this.totalSales.length; i++) {
 
 
 
       var td2 = document.createElement('td');
 
-      td2.textContent = this.TotalSales[d];
+      td2.textContent = this.totalSales[i];
 
 
 
@@ -100,9 +98,9 @@ function Store(name, minCustomer, maxCustomer, aveSales) {
 
     // Add sum of each store to the end of the column.
 
-    for (var a = 0; a < this.TotalSales.length; a++) {
+    for (var x = 0; x < this.totalSales.length; x++) {
 
-      sum += parseInt(this.TotalSales[a]);
+      sum += parseInt(this.totalSales[x]);
 
     }
 
@@ -134,7 +132,7 @@ new Store('1st and Pike', 23, 65, 6.3);
 
 new Store('SeaTac Airport', 3, 24, 1.2);
 
-new Store('Seattle Center', 11, 387, 3.7);
+new Store('Seattle Center', 11, 38, 3.7);
 
 new Store('Capitol Hill', 20, 38, 2.3);
 
@@ -168,15 +166,15 @@ function fillHead() {
 
 
 
-  hours.unshift(' ');
+  hours.unshift('Locations / Hours');
 
 
 
-  for (var h = 0 ; h < hours.length; h++) {
+  for (var i = 0 ; i < hours.length; i++) {
 
     var th = document.createElement('th');
 
-    th.textContent = hours[h];
+    th.textContent = hours[i];
 
     tr.appendChild(th);
 
@@ -186,7 +184,7 @@ function fillHead() {
 
   var th2 = document.createElement('th');
 
-  th2.textContent = sumTotal;
+  th2.textContent = sumStore;
 
 
 
@@ -214,17 +212,17 @@ function fillEndSum() {
 
 
 
-  var emptySpace = document.createElement('td');
+  var lastRow = document.createElement('td');
 
-  emptySpace.textContent = 'Total Sales per Hour';
+  lastRow.textContent = 'Total Sales per Hour';
 
-  endTr.appendChild(emptySpace);
+  endTr.appendChild(lastRow);
 
   tbody.appendChild(endTr);
 
 
 
-  for (var e = 0; e < hours.length-1; e++) {
+  for (var i = 0; i < hours.length-1; i++) {
 
     var hourSales = document.createElement('td');
 
@@ -232,13 +230,11 @@ function fillEndSum() {
 
     var sumEnd = 0;
 
-    for (var m = 0; m < allStores.length; m++) {
+    for (var x = 0; x < allStores.length; x++) {
 
-      sumEnd += parseInt(allStores[m].TotalSales[e]);
+      sumEnd += parseInt(allStores[x].totalSales[i]);
 
     }
-
-
 
 
 
@@ -256,9 +252,9 @@ function fillEndSum() {
 
 function initialize () {
 
-  for (var f = 0; f < allStores.length; f++) {
+  for (var i = 0; i < allStores.length; i++) {
 
-    allStores[f].fillCells();
+    allStores[i].fillCells();
 
   }
 
@@ -327,4 +323,3 @@ function reprint() {
 var form = document.getElementById('sales_form');
 
 form.addEventListener('submit', formData);
-
